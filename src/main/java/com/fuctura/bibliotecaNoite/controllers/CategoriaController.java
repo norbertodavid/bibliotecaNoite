@@ -40,4 +40,16 @@ public class CategoriaController {
         return cat;
     }
 
+    @PutMapping("/{id}")
+    public Categoria upDate(@PathVariable Long id, @RequestBody Categoria categoria) {
+        categoria.setId(id);
+        Categoria cat = categoriaSevirce.upDate(categoria);
+        return cat;
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        categoriaSevirce.delete(id);
+    }
+
 }
