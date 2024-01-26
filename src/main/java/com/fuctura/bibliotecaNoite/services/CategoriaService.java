@@ -5,6 +5,7 @@ import com.fuctura.bibliotecaNoite.repositories.CategoriaRopository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,8 +15,16 @@ public class CategoriaService {
     private CategoriaRopository categoriaRepository;
 
     public Categoria findById(Long id) {
+        //Quando for fazer uma busca de um objeto, usamos o Optional
         Optional<Categoria> cat = categoriaRepository.findById(id);
         return cat.get();
     }
 
+    public List<Categoria> findAll() {
+        return categoriaRepository.findAll();
+    }
+
+    public Categoria save(Categoria categoria) {
+        return categoriaRepository.save(categoria);
+    }
 }

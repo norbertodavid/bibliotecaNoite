@@ -1,5 +1,6 @@
 package com.fuctura.bibliotecaNoite.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fuctura.bibliotecaNoite.enuns.Tamanho;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id") //Essa anotation, faz uma ligação entre as duas tabelas: Categoria e Livros
+    @JsonIgnore  //Após a requisição, ele pausa.
     private Categoria categoria;
 
     public Livro() {
