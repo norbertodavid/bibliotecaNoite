@@ -15,7 +15,7 @@ import java.util.List;
 public class DBService {
 
     @Autowired
-    private LivroRepository livroRepository;  //Instaciamos o Repository aqui.
+    private LivroRepository livroRepository;  //Instacia a classe LivroRepository aqui.
 
     @Autowired
     private CategoriaRopository categoriaRopository;
@@ -27,21 +27,23 @@ public class DBService {
         Categoria cat3 = new Categoria(null, "Biografia", "Livros de Biografia");
         Categoria cat4 = new Categoria(null, "Terror", "Livros de Terror");
 
-        Livro l1 = new Livro(null, "Clean code", "Robertin Martin", "Lorem ipsum", Tamanho.MEDIO, cat1);
-        Livro l2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", Tamanho.GRANDE, cat1);
-        Livro l3 = new Livro(null, "The time machine", "H. G. Wells", "Lorem ipsum", Tamanho.MEDIO, cat2);
-        Livro l4 = new Livro(null, "The war of the worlds", "H. G. Wells", "Lorem ipsum", Tamanho.PEQUENO, cat2);
-        Livro l5 = new Livro(null, "I, robot", "Isaac Asimov", "Lorem ipsum", Tamanho.GRANDE, cat2);
-        Livro l6 = new Livro(null, "Einstein", "David Bodanis", "Biografia de um gênio imperfeito", Tamanho.MEDIO, cat3);
-        Livro l7 = new Livro(null, "A Rainha vermelha", "Victoria Aveyard", "Uma sociedade dividida pelo sangue", Tamanho.GRANDE, cat4);
+        Livro liv1 = new Livro(null, "Clean code", "Robertin Martin", "Lorem ipsum", Tamanho.MEDIO, cat1);
+        Livro liv2 = new Livro(null, "Engenharia de Software", "Louis V. Gerstner", "Lorem ipsum", Tamanho.GRANDE, cat1);
+        Livro liv3 = new Livro(null, "The time machine", "H. G. Wells", "Lorem ipsum", Tamanho.MEDIO, cat2);
+        Livro liv4 = new Livro(null, "The war of the worlds", "H. G. Wells", "Lorem ipsum", Tamanho.PEQUENO, cat2);
+        Livro liv5 = new Livro(null, "I, robot", "Isaac Asimov", "Lorem ipsum", Tamanho.GRANDE, cat2);
+        Livro liv6 = new Livro(null, "Einstein", "David Bodanis", "Biografia de um gênio imperfeito", Tamanho.MEDIO, cat3);
+        Livro liv7 = new Livro(null, "A Rainha vermelha", "Victoria Aveyard", "Uma sociedade dividida pelo sangue", Tamanho.GRANDE, cat4);
 
-        cat1.getLivros().addAll(Arrays.asList(l1, l2)); //adiciona os livros na categoria
-        cat2.getLivros().addAll(Arrays.asList(l3, l4, l5, l6, l7));
-        cat3.getLivros().addAll(Arrays.asList(l6));
-        cat4.getLivros().addAll(Arrays.asList(l7));
+        //adiciona os livros na categoria:
+        cat1.getLivros().addAll(Arrays.asList(liv1, liv2));
+        cat2.getLivros().addAll(Arrays.asList(liv3, liv4, liv5));
+        cat3.getLivros().addAll(Arrays.asList(liv6));
+        cat4.getLivros().addAll(Arrays.asList(liv7));
 
-        categoriaRopository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4)); //salva no Banco, passando como parâmetros: as categorias e os livros
-        livroRepository.saveAll(Arrays.asList(l1, l2, l3, l4, l5, l6, l7));
+        //salva todos no Banco, passando como parâmetros: as categorias e os livros:
+        categoriaRopository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
+        livroRepository.saveAll(Arrays.asList(liv1, liv2, liv3, liv4, liv5, liv6, liv7));
 
     }
 }

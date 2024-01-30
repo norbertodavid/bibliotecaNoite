@@ -17,12 +17,13 @@ public class Livro {
     private String autor;
     private String texto;
 
-    private Tamanho tamanho;
+    private Tamanho tamanho;  //Chamei a classe Enum aqui dentro da classe Livro.
 
     @ManyToOne
     @JoinColumn(name = "categoria_id") //Essa anotation, faz uma ligação entre as duas tabelas: Categoria e Livros
     @JsonIgnore  //Após a requisição, ele pausa.
-    private Categoria categoria;
+
+    private Categoria categoria;  //Chamei a classe categoria dentro da classe Livro
 
     public Livro() {
     }
