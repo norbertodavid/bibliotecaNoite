@@ -1,11 +1,15 @@
 package com.fuctura.bibliotecaNoite.controllers;
 
+import com.fuctura.bibliotecaNoite.dtos.CategoriaDTO;
 import com.fuctura.bibliotecaNoite.models.Categoria;
 import com.fuctura.bibliotecaNoite.services.CategoriaService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/categoria")
@@ -13,6 +17,9 @@ public class CategoriaController {
 
     @Autowired  //Instacia
     public CategoriaService categoriaSevirce;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     /*
     @GetMapping("/{id}") = buscar por id;
@@ -23,21 +30,22 @@ public class CategoriaController {
     */
 
     @GetMapping("/{id}")
-    public Categoria findById(@PathVariable Long id) {
+    public ResponseEntity<CategoriaDTO> findById(@PathVariable Long id) {
         Categoria cat = categoriaSevirce.findById(id);
-        return cat;
+        return ResponseEntity.ok().body(modelMapper.map(cat, CategoriaDTO.class));
     }
 
     @GetMapping
-    public List<Categoria> findAll() {
+    public ResponseEntity<List<CategoriaDTO>> findAll() {
         List<Categoria> list = categoriaSevirce.findAll();
-        return list;
+        return ResponseEntity.ok().body(list.stream().map(obj ->
+                modelMapper.map(obj, CategoriaDTO.class)).collect(Collectors.toList()));
     }
 
     @PostMapping
-    public Categoria save(@RequestBody Categoria categoria) {
-        Categoria cat = categoriaSevirce.save(categoria);
-        return cat;
+    public ResponseEntity<CategoriaDTO> save(@RequestBody CategoriaDTO categoriaDTO) {
+        Categoria cat = categoriaSevirce.save(categoriaDTO);
+        return ResponseEntity.ok().body(modelMapper.map(categoriaDTO, CategoriaDTO.class));
     }
 
     @PutMapping("/{id}")
