@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 
+//Essa é classe que é montada os parâmetros constando o que é mostrado nos erros.
 public class StandardError {
 
+    //@JsonFomato: passando como parâmetro o formato de como é mostrado a data e hora.
     @JsonFormat(pattern = "HH:mm - dd/MM/yyyy")
     private LocalDateTime timesTemp;
     private Integer status;

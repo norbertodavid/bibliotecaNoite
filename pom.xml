@@ -53,12 +53,17 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- criei o modelmapper para encapsular o as classes DTOs -->
+		<!-- adicionei o modelmapper(do MVNRepo) para encapsular o as classes DTOs -->
 		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
 			<version>3.2.0</version>
+		</dependency>
+		<!-- adicionei a validation(do SpringInitializr > Explorer) para adicionar as validações do projeto -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
 	</dependencies>
