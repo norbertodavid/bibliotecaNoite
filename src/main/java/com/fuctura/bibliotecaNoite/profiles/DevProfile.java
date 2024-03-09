@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Configuration
-@Profile("dev")
+@Configuration //Serve para dizer que esta config deve rodar
+@Profile("dev") //aqui sinalizamos qual perfil rodar no servidor.
 public class DevProfile {
 
     @Autowired

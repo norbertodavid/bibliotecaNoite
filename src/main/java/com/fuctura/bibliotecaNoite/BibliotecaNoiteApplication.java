@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BibliotecaNoiteApplication {
 
 	public static void main(String[] args) {
+
+		//Aqui é onde rodamos a aplicação
 		SpringApplication.run(BibliotecaNoiteApplication.class, args);
 	}
 

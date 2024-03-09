@@ -2,6 +2,8 @@ package com.fuctura.bibliotecaNoite.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -41,6 +43,14 @@ public class GlobalException {
 
         //retorna um resposeEntity.status com valor do status do HttpStatus de BAD_REQUEST, e trazendo no body a variavel "se" de EstandardError
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(se);
+    }
+
+    public ResponseEntity<StandardError> methodArgumentNotValidException(MethodArgumentNotValidException e, HttpServletRequest request) {
+        ValidationError ve = new ValidationError(LocalDateTime.now(), HttpStatus.BAD_REQUEST.value(), "Erro na validação dos campos", request.getRequestURI());
+        for (FieldError item : e.getBindingResult().getFieldErrors()) {
+            ve.addErros(item.getField(), item.getDefaultMessage());
+        }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ve);
     }
 
 }

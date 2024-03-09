@@ -14,11 +14,14 @@ import java.util.List;
 @Service
 public class DBService {
 
-    @Autowired
-    private LivroRepository livroRepository;  //Instacia a classe LivroRepository aqui.
+    //Classe criada para povoar o Banco de Dados manualmente.
 
     @Autowired
-    private CategoriaRopository categoriaRopository;
+    private LivroRepository livroRepository;  //É Instaciado a interface LivroRepository
+
+    @Autowired
+    private CategoriaRopository categoriaRopository;  //É instanciado a interface CategoriaRepository
+
 
     public void instanciaDB() {
 
@@ -35,13 +38,13 @@ public class DBService {
         Livro liv6 = new Livro(null, "Einstein", "David Bodanis", "Biografia de um gênio imperfeito", Tamanho.MEDIO, cat3);
         Livro liv7 = new Livro(null, "A Rainha vermelha", "Victoria Aveyard", "Uma sociedade dividida pelo sangue", Tamanho.GRANDE, cat4);
 
-        //adiciona os livros na categoria:
+        //adiciona os livros nas categorias especificadas abaixo
         cat1.getLivros().addAll(Arrays.asList(liv1, liv2));
         cat2.getLivros().addAll(Arrays.asList(liv3, liv4, liv5));
         cat3.getLivros().addAll(Arrays.asList(liv6));
         cat4.getLivros().addAll(Arrays.asList(liv7));
 
-        //salva todos no Banco, passando como parâmetros: as categorias e os livros:
+        //salva no Banco, passando como parâmetros: as categorias e os livros
         categoriaRopository.saveAll(Arrays.asList(cat1, cat2, cat3, cat4));
         livroRepository.saveAll(Arrays.asList(liv1, liv2, liv3, liv4, liv5, liv6, liv7));
 

@@ -10,6 +10,11 @@ import java.util.Optional;
 public interface CategoriaRopository extends JpaRepository<Categoria, Long> {
     //Todas as consultas personalizadas são criadas aqui no Repository:
 
-    //Mesmo sem o @Query essa consulta é válida aqui no Intellij
+    //Mesmo sem o @Query essa consulta é válida aqui no IntelliJ
     Optional<Categoria> findByNome(String nome);
+
+    //Busque pelo nome da categoria (podendo pesquisar pelo início das letras
+    // do nome, ignorando o restante)
+    Optional<Categoria> findByNomeContainingIgnoreCase(String nome);
+
 }

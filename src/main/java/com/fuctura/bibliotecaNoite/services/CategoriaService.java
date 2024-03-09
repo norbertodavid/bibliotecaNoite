@@ -34,7 +34,7 @@ public class CategoriaService {
             return cat.get();
         }
         //se não, retorne esse tratamento de erro.
-        throw new ObjectNotFoundException("Categoria não encontrada abestado!");
+        throw new ObjectNotFoundException("Categoria não encontrada!");
     }
 
     public List<Categoria> findAll() {
@@ -76,6 +76,13 @@ public class CategoriaService {
         //Se a categoria estiver presente no Banco e o nome da CategoriaDTO for o mesmo da classe Categoria, lança a mensagem de erro.
         if(cat.isPresent() && cat.get().getNome().equals(categoriaDTO.getNome())) {
             throw new IllegalArgumentException("Já existe uma categoria com esse nome: " + categoriaDTO.getNome());
+        }
+    }
+
+    public void buscarPorNome(String nome) {
+        Optional<Categoria> cat = categoriaRepository.findByNomeContainingIgnoreCase(nome);
+        if (cat.isEmpty()) {
+            throw new ObjectNotFoundException("Categoria não encontrada!");
         }
     }
 }

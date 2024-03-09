@@ -1,16 +1,17 @@
 package com.fuctura.bibliotecaNoite.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fuctura.bibliotecaNoite.dtos.LivroDTO;
 import com.fuctura.bibliotecaNoite.enuns.Tamanho;
 
 import javax.persistence.*;
 
 //O pacote: models, juntamente com: classes e atributos, são os primeiros a serem criados
-@Entity
-@Table(name = "TB_Livro")
+@Entity  // Torna a classe real no Banco de Dados
+@Table(name = "TB_Livro")  // Renomeia as DataBases do Banco
 public class Livro {
 
-    @Id
+    @Id  //Anottation importante para definir os Id's e a estratégia de cada classe.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
@@ -21,8 +22,7 @@ public class Livro {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id") //Essa anotation, faz uma ligação entre as duas tabelas: Categoria e Livros
-    @JsonIgnore  //Após a requisição, ele pausa.
-
+    @JsonIgnore  //Após a requisição, com essa anotation é feito uma pausa.
     private Categoria categoria;  //Chamei a classe categoria dentro da classe Livro
 
     public Livro() {
@@ -35,6 +35,15 @@ public class Livro {
         this.texto = texto;
         this.tamanho = tamanho;
         this.categoria = categoria;
+    }
+
+    public Livro(LivroDTO livroDTO) {
+        this.id = livroDTO.getId();
+        this.titulo = livroDTO.getTitulo();
+        this.autor = livroDTO.getAutor();
+        this.texto = livroDTO.getTexto();
+        this.tamanho = livroDTO.getTamanho();
+        this.categoria = livroDTO.getCategoria();
     }
 
     public Long getId() {

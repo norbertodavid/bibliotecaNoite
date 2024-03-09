@@ -1,5 +1,7 @@
 package com.fuctura.bibliotecaNoite.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,9 @@ public class Categoria {
     private String nome;
     private String descricao;
 
+
     @OneToMany(mappedBy = "categoria")  //relaciona de 1 para N e passa como parâmetro, o mapeamento por categoria
+    @JsonIgnore  //Após a requisição, com essa anotation é feito uma pausa.
     private List<Livro> livros = new ArrayList<>();  //instaciou a classe livros aqui
 
     //Construtor vazio, criado como boas práticas
@@ -29,6 +33,7 @@ public class Categoria {
         this.descricao = descricao;
     }
 
+    //Getters e Setters
     public Long getId() {
         return id;
     }
