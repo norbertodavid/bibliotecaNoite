@@ -96,7 +96,7 @@ O projeto pode utilizar:
 Clone o projeto
 
 ```bash
-git clone https://github.com/SEU-USUARIO/bibliotecaNoite.git
+git clone https://github.com/norbertodavid/bibliotecaNoite.git
 ```
 
 Entre na pasta
