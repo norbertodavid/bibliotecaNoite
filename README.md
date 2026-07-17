@@ -4,9 +4,9 @@ API REST desenvolvida com **Spring Boot** para gerenciamento de uma biblioteca.
 
 O projeto foi criado com o objetivo de praticar os principais conceitos de desenvolvimento Back-end utilizando Java e Spring, seguindo boas práticas de arquitetura em camadas.
 
-----
+---
 
-# 🚀 Tecnologias utilizadas
+## 🚀 Tecnologias utilizadas
 
 - Java
 - Spring Boot
@@ -18,12 +18,13 @@ O projeto foi criado com o objetivo de praticar os principais conceitos de desen
 - ModelMapper
 - Bean Validation
 
-----
+---
 
-# 📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto
 
 O projeto segue a arquitetura em camadas:
 
+```
 Controller
    ↓
 Service
@@ -31,9 +32,11 @@ Service
 Repository
    ↓
 Banco de Dados
+```
 
 Organização dos pacotes:
 
+```
 controllers/
 services/
 repositories/
@@ -42,12 +45,13 @@ dtos/
 exceptions/
 configs/
 profiles/
+```
 
-----
+---
 
-# 📖 Funcionalidades
+## 📖 Funcionalidades
 
-## Categorias
+### Categorias
 
 - ✅ Cadastrar categoria
 - ✅ Buscar categoria por ID
@@ -55,7 +59,7 @@ profiles/
 - ✅ Atualizar categoria
 - ✅ Excluir categoria
 
-## Livros
+### Livros
 
 - ✅ Cadastrar livro
 - ✅ Buscar livro por ID
@@ -65,7 +69,7 @@ profiles/
 
 ---
 
-# 🛠 Boas práticas aplicadas
+## 🛠 Boas práticas aplicadas
 
 - Arquitetura em camadas
 - Utilização de DTOs
@@ -76,46 +80,46 @@ profiles/
 - Uso do ModelMapper para conversão entre entidades e DTOs
 - Código comentado para facilitar o entendimento
 
-----
+---
 
-# 💾 Banco de Dados
+## 💾 Banco de Dados
 
 O projeto pode utilizar:
 
 - H2 Database (desenvolvimento)
 - MySQL
 
-----
+---
 
-# ▶️ Como executar
+## ▶️ Como executar
 
 Clone o projeto
 
-bash
-git clone https://github.com/norbertodavid/bibliotecaNoite.git
-
+```bash
+git clone https://github.com/SEU-USUARIO/bibliotecaNoite.git
+```
 
 Entre na pasta
 
-bash
+```bash
 cd bibliotecaNoite
-
+```
 
 Execute
 
-bash
+```bash
 ./mvnw spring-boot:run
-
+```
 
 Ou pela sua IDE favorita (IntelliJ ou Eclipse).
 
-----
+---
 
-# 📌 Objetivo
+## 📌 Objetivo
 
-Este projeto foi desenvolvido como prática durante meus estudos em **Java e Spring Boot**, com foco em compreender a construção de APIs REST utilizando uma arquitetura limpa e organizada. Como criar um CRUD bem estruturado.
+Este projeto foi desenvolvido como prática durante meus estudos em **Java e Spring Boot**, com foco em compreender a construção de APIs REST utilizando uma arquitetura limpa e organizada. Aprender como criar um **CRUD** bem estruturado.
 
-----
+---
 
 ## 👨‍💻 Autor
 
@@ -129,4 +133,4 @@ GitHub:
 https://github.com/norbertodavid
 
 LinkedIn:
-https://linkedin.com/in/norberto-sp
+https://linkedin.com/in/norberto-david-sp
