@@ -24,8 +24,8 @@
 		<!-- add swagger dependecies -->
 		<dependency>
     		<groupId>org.springdoc</groupId>
-    		<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-    		<version>2.5.0</version>
+    		<artifactId>springdoc-openapi-ui</artifactId>
+    		<version>1.7.0</version>
 		</dependency>
 		
 		<dependency>
